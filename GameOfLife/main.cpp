@@ -1,11 +1,10 @@
 #include <cstdlib>
 #include <crtdbg.h>
-#include <conio.h>
 #include "LifeOfGame.h"
 
 int main()
 {
-    auto arr = new int[WIDTH][HEIGHT]() ; 
+    auto arr = new int[HEIGHT][WIDTH]() ; 
     Begin(arr) ; 
     Draw(arr, 0) ; 
 

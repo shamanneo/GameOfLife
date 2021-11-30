@@ -1,11 +1,11 @@
 #include "LifeOfGame.h"
 
-void Begin(int p[][HEIGHT])
+void Begin(int p[][WIDTH])
 {
     srand((unsigned int)time(NULL)) ; 
-    for(int x = 1 ; x < WIDTH - 1 ; x++)
+    for(int x = 1 ; x < HEIGHT - 1 ; x++)
     {
-        for(int y = 1 ; y < HEIGHT - 1 ; y++)
+        for(int y = 1 ; y < WIDTH - 1 ; y++)
         {
             int life = rand() % 2 ;
             p[x][y] = life ; 
@@ -13,15 +13,15 @@ void Begin(int p[][HEIGHT])
     }
 }
 
-void Draw(int p[][HEIGHT], int generation)
+void Draw(int p[][WIDTH], int generation)
 {
     int count = 0 ; 
     Goto(0, 0) ; 
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE) ; 
     srand((unsigned int)time(NULL)) ; 
-    for(int x = 1 ; x < WIDTH - 1 ; x++)
+    for(int x = 1 ; x < HEIGHT - 1 ; x++)
     {
-        for(int y = 1 ; y < HEIGHT - 1 ; y++)
+        for(int y = 1 ; y < WIDTH - 1 ; y++)
         {
             if((p[x][y] == DEAD) || (p[x][y] == WILLDEAD))
             {
@@ -33,17 +33,17 @@ void Draw(int p[][HEIGHT], int generation)
                 count++ ; 
                 p[x][y] = LIVE ;
                 SetConsoleTextAttribute(handle, rand() % 16) ;
-                printf("@") ; 
+                printf("*") ; 
             }
         }
         printf("\n") ; 
     }
-    Goto(0, WIDTH) ; 
+    Goto(0, HEIGHT) ; 
     SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) ;
     printf("\r====================================================================================================================== Count : %d  Generation : %d     ", count, generation) ; 
 }
 
-int GetNeighbors(int x, int y, int p[][HEIGHT])
+int GetNeighbors(int x, int y, int p[][WIDTH])
 {
     int count = 0 ; 
 
@@ -82,12 +82,12 @@ int GetNeighbors(int x, int y, int p[][HEIGHT])
     return count ;
 }
 
-void Next(int p[][HEIGHT]) 
+void Next(int p[][WIDTH]) 
 {
     int neighbor_count = 0 ; 
-    for(int x = 1 ; x < WIDTH - 1 ; x++)
+    for(int x = 1 ; x < HEIGHT - 1 ; x++)
     {
-        for(int y = 1 ; y < HEIGHT - 1 ; y++)
+        for(int y = 1 ; y < WIDTH - 1 ; y++)
         {
             neighbor_count = GetNeighbors(x, y, p) ; 
             if(p[x][y] == DEAD)
