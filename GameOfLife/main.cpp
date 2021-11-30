@@ -10,6 +10,7 @@ int main()
     for(int i = 0 ; i < GENERATION ; i++)
     {
         Draw(arr) ; 
+        Sleep(50) ; 
         Next(arr) ; 
     }
 

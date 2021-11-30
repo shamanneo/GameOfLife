@@ -15,9 +15,9 @@ void Begin(int p[][HEIGHT])
 
 void Draw(int p[][HEIGHT])
 {
-    const COORD left_top = {0, 0} ; 
+    int count = 0 ; 
+    Goto(0, 0) ; 
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE) ; 
-    SetConsoleCursorPosition(handle, left_top) ;
     srand((unsigned int)time(NULL)) ; 
     for(int x = 1 ; x < WIDTH - 1 ; x++)
     {
@@ -30,13 +30,17 @@ void Draw(int p[][HEIGHT])
             }
             else if((p[x][y] == LIVE) || (p[x][y] == WILLLIVE))
             {
+                count++ ; 
                 p[x][y] = LIVE ;
                 SetConsoleTextAttribute(handle, rand() % 16) ;
-                printf("@") ; 
+                printf("*") ; 
             }
         }
         printf("\n") ; 
     }
+    Goto(0, WIDTH + 1) ; 
+    SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) ;
+    printf("\rCount = %d   ", count) ; 
 }
 
 int GetNeighbors(int x, int y, int p[][HEIGHT])
@@ -111,3 +115,11 @@ void Next(int p[][HEIGHT])
         }
     }
 }
+
+void Goto(int x, int y)
+{
+    const COORD pos = {(SHORT)x, (SHORT)y} ; 
+    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE) ; 
+    SetConsoleCursorPosition(handle, pos) ;
+}
+
