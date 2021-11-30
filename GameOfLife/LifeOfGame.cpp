@@ -33,14 +33,14 @@ void Draw(int p[][HEIGHT], int generation)
                 count++ ; 
                 p[x][y] = LIVE ;
                 SetConsoleTextAttribute(handle, rand() % 16) ;
-                printf("*") ; 
+                printf("@") ; 
             }
         }
         printf("\n") ; 
     }
-    Goto(0, WIDTH + 1) ; 
+    Goto(0, WIDTH) ; 
     SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) ;
-    printf("\rCount : %d  Generation : %d     ", count, generation) ; 
+    printf("\r====================================================================================================================== Count : %d  Generation : %d     ", count, generation) ; 
 }
 
 int GetNeighbors(int x, int y, int p[][HEIGHT])

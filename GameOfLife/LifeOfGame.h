@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define HEIGHT 150
-#define WIDTH 30
+#define HEIGHT 155
+#define WIDTH 35
 
-#define GENERATION 1000 
+#define GENERATION 500 
 
 enum {DEAD, LIVE, WILLDEAD, WILLLIVE} ; 
 
