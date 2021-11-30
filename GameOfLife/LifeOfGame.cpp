@@ -13,7 +13,7 @@ void Begin(int p[][HEIGHT])
     }
 }
 
-void Draw(int p[][HEIGHT])
+void Draw(int p[][HEIGHT], int generation)
 {
     int count = 0 ; 
     Goto(0, 0) ; 
@@ -40,7 +40,7 @@ void Draw(int p[][HEIGHT])
     }
     Goto(0, WIDTH + 1) ; 
     SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) ;
-    printf("\rCount = %d   ", count) ; 
+    printf("\rCount : %d  Generation : %d     ", count, generation) ; 
 }
 
 int GetNeighbors(int x, int y, int p[][HEIGHT])

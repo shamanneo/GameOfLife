@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <crtdbg.h>
+#include <conio.h>
 #include "LifeOfGame.h"
 
 int main()
@@ -9,11 +10,10 @@ int main()
     
     for(int i = 0 ; i < GENERATION ; i++)
     {
-        Draw(arr) ; 
+        Draw(arr, i) ; 
         Sleep(50) ; 
         Next(arr) ; 
     }
-
     delete[] arr ; 
     _CrtDumpMemoryLeaks() ; 
     return 0 ; 
