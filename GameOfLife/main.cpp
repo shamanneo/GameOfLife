@@ -11,8 +11,8 @@ int main()
     for(int i = 0 ; i <= GENERATION ; i++)
     {
         Draw(arr, i) ; 
-        Sleep(50) ; 
-        Next(arr) ; 
+        Sleep(10) ; 
+        Update(arr) ; 
     }
     
     delete[] arr ; 

@@ -40,7 +40,7 @@ void Draw(int p[][WIDTH], int generation)
     }
     Goto(0, HEIGHT) ; 
     SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) ;
-    printf("\r====================================================================================================================== Count : %d  Generation : %d     ", count, generation) ; 
+    printf("\r================================================================================================================  Count : %d  Generation : %d     ", count, generation) ; 
 }
 
 int GetNeighbors(int x, int y, int p[][WIDTH])
@@ -82,7 +82,7 @@ int GetNeighbors(int x, int y, int p[][WIDTH])
     return count ;
 }
 
-void Next(int p[][WIDTH]) 
+void Update(int p[][WIDTH]) 
 {
     int neighbor_count = 0 ; 
     for(int x = 1 ; x < HEIGHT - 1 ; x++)
